@@ -12,7 +12,7 @@
 
   This project was created during my college which is basically a secure file storage in cloud using hybrid cryptography. This application was made to avoid the malicious
   manipulation of data while storing data in cloud by adding up three layers of encryption instead of one which is used in the current scenario and also we make sure to
-  add up more security by adding image steganography techniques. This entire application is primarily built using Python,Solidity,HTML,CSS and JS. 
+  add up more security by adding image steganography techniques. This entire application is primarily built using Python,Django Framework,Solidity,HTML,CSS and JS. 
   
   If Any doubts
   
