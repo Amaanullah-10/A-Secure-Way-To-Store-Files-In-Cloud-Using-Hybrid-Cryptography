@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: pyception
+Version: 0.1.1
+Summary: A more meaningful exception's collection for Python
+Home-page: https://github.com/jonathansp/pyception
+Author: Jonathan Simon Prates
+Author-email: jonathan.simonprates@gmail.com
+License: LGPLv3
+Description: # pyception
+        A more meaningful exception's collection for Python
+        
+Keywords: exceptions
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4

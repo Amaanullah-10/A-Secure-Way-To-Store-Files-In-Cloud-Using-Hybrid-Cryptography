@@ -1,0 +1,53 @@
+ {% extends 'base.html'%}
+    {% block content%}
+    {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+
+<div style="background: url('/media/img/images/bg.jpg'); background-repeat:no-repeat;background-size:cover; color: white; height: 500px;  ">
+	<br><br><br>
+
+	<form class="form-horizontal" action='/decrypt/'  method="POST" id="signup-form" enctype="multipart/form-data">
+  {% csrf_token %}
+<div class="container">
+<center>
+	
+
+	<div>
+		<img src="\media\img\images\file.png" alt="File" height="200px" width="200px">
+	</div>
+	<br>
+	<div>
+		<input type="hidden" name="hfId" id="hfId" value="{{filedetails.id}}">
+		<input type="hidden" name="hffilename" id="hffilename" value="{{filedetails.Filename}}">
+		<label style="font-size: x-large;color: white;background-color:black ">{{filedetails.Filename}}</label>
+	</div>
+<br>
+	<div class="row">
+		<div class="col-md-2">
+			
+		<label style="font-size: large;color: white;margin-top: 5px">Enter Password  :</label>
+		</div>
+		<div class="col-md-8">
+			<input type="hidden" name="hfpassword" id="hfpassword" value="{{filedetails.Password}}" style="display: none"> 
+			<input type="file" placeholder="Enter Password" class="form-control" name="encimg" id="encimg">
+		</div>
+		
+	</div>
+<br>
+	<div>
+		<button type="submit" class="btn btn-info">Decrypt</button>
+		
+	</div>
+	</center>
+</div>
+
+</form>
+</div>
+
+
+    {% endblock%}

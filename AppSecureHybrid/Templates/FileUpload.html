@@ -1,0 +1,128 @@
+
+ {% extends 'base.html'%}
+    {% block content%}
+    {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+
+<div style="background: url('/media/img/images/bg.jpg'); background-repeat:no-repeat;background-size:cover; color: white; height: 500px; ">
+	
+<div class="container">
+	
+
+		<center><h1 >FILE UPLOAD</h1></center> 
+
+		<hr>
+		<form class="form-signin" action="/FileUpload/" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<br><br>
+
+		<div class="row">
+			<div class="col-md-4 text-right">
+			<label style="font-size: x-large;">Select Users:</label>
+		</div>
+		<div class="col-md-6">
+		<select id="Users" name="Users" class="form-control">
+		  	<option value="Select">Select</option>
+			{% for entry in Users %}
+			<option value="{{ entry.First_name }}">{{ entry.First_name }}</option>
+			{% endfor %}
+		</select>	
+		</div>
+		<div class="col-md-1"></div>
+		</div>
+		<br>
+
+
+		<div class="row">
+			<div class="col-md-4 text-right">
+			<label style="font-size: x-large;">Upload File:</label>
+		</div>
+		<div class="col-md-6">
+		<input type="file" class="form-control" name="fileupload" id="fileupload" onchange="return fileValidation()">
+		</div>
+		<div class="col-md-1"></div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-4 text-right">
+			<label style="font-size: x-large;">Upload Image:</label>
+		</div>
+		<div class="col-md-6">
+		<input type="file" class="form-control" name="image" id="image"  onchange=" return imgValidation()">
+		</div>
+		<div class="col-md-1"></div>
+		</div>
+		<br>
+
+		<div class="row">
+			<div class="col-md-4 text-right">
+			<label style="font-size: x-large;">Enter Password:</label>
+		</div>
+		<div class="col-md-6">
+		<input type="text" class="form-control" name="password" id="password" onchange=" return fileValidation()">	
+		</div>
+		<div class="col-md-1"></div>
+		</div>
+		<br>
+
+
+		<div class="row">
+			<div class="col-md-5"></div>
+		<div class="col-md-2">
+		<button class="btn btn-lg btn-info btn-block text-uppercase" type="submit">Encrypt Test</button>
+		</div>
+		<div class="col-md-1"></div>
+		<!--<div class="col-md-2">
+		<a class="btn btn-lg btn-success btn-block text-uppercase" href="/decrypt/">Decrypt Test</a>
+		</div> -->
+		</div>
+		</form>
+
+
+</div>
+
+
+</div>
+<script>
+	 function fileValidation() {
+            var fileInput = 
+                document.getElementById('fileupload');
+              
+            var filePath = fileInput.value;
+          
+            // Allowing file type
+            var allowedExtensions = /(\.txt)$/i;
+              
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Select only text file(.txt)');
+                fileInput.value = '';
+                return false;
+            } 
+        }
+    function imgValidation() {
+    	var fileInput =
+    		document.getElementById('image');
+              
+        var filePath = fileInput.value;
+          
+        // Allowing file type
+        var allowedExtensions = /(\.png)$/i;
+              
+        if (!allowedExtensions.exec(filePath)) {
+        	alert('Select only text file(.png)');
+            fileInput.value = '';
+            return false;
+        } 
+    }
+
+
+
+</script>
+
+
+    {% endblock %}

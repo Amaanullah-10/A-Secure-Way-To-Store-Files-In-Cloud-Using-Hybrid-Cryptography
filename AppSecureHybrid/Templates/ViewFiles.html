@@ -1,0 +1,51 @@
+
+ {% extends 'base.html'%}
+    {% block content%}
+    {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+
+<div style="background: url('/media/img/images/bg.jpg'); background-repeat:no-repeat;background-size:cover; color: white; height: 600px;  ">
+	
+<br><br><br>
+
+
+<center>
+<div class="container" style="height: 450px">	
+	
+	<table class="table table-striped table-bordered table-sm" >  
+    <thead class="thead-dark" style="background-color: black">  
+    <tr>  
+        <th>id</th>  
+        <th>SenderId</th>  
+        <th>ReceiverId</th>  
+        <th>Filename</th>  
+        <th>View File</th> 
+    </tr>  
+    </thead>  
+    <tbody style="color: black;background-color: white"> 
+	{% for or in Files %}  
+		<tr>  
+	        <td>{{ or.id }}</td>  
+	        <td>{{ or.SenderId }}</td>  
+	        <td>{{ or.ReceiverId }}</td>  
+	        <td>{{ or.Filename }}</td>   
+	        <td>	          
+	            <a class="btn btn-info" href="/FileDetail/{{ or.id }}">View</a>  
+			</td>  
+		</tr> 
+	{% endfor %} 
+
+    </tbody>  
+	</table>
+</div>
+</center>
+
+
+</div>
+
+    {% endblock%}

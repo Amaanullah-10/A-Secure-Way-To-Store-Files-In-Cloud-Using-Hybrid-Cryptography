@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <title>Secure File Storage</title>
+  </head>
+  <body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="color:white">SECURE FILE STORAGE</a>
+    </div>
+
+    <ul class="nav navbar-nav ">
+      <li class="active"><a href="{% url 'home'%}">Home</a></li>
+      {% if  request.session.type_id == 'User' %}
+      <li ><a href="{% url 'FileUpload'%}">File Upload</a></li>
+      <li ><a href="{% url 'ViewFiles'%}">View Files</a></li>
+    
+     {% endif %}
+      </ul>
+   
+    {% if  request.session.login == 'Yes' %}
+      <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a class=" text-white text-capitalize">Hi, {{request.session.username}}</a></li>
+      <li class="active"><a class=" text-white text-capitalize" href="{% url 'logout'%}">Logout</a></li>
+
+     {% else %}
+      <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a class="text-white text-capitalize"  href="{% url 'User_login'%}"><span class="glyphicon glyphicon-log-in"></span> &nbsp;Login </span></a>
+       
+
+      </li>
+      {% endif %}
+    </ul>
+    
+  </div>
+</nav>
+
+
+
+
+
+    {% block content%}
+     
+
+    {% endblock%}
+  
+    
+  
+
+
+     <footer class="text-right" style="padding: 10px 20px;background:black;color: white;height: 44px">
+      <p style="font-size: small;">Company ©2020. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
