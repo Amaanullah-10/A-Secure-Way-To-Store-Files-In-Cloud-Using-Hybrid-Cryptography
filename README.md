@@ -1,4 +1,4 @@
-  A-Secure-Way-To-Store-Files-In-Cloud-Using-Hybrid-Cryptography using Python,Solidity,HTML,CSS and JS.
+  A-Secure-Way-To-Store-Files-In-Cloud-Using-Hybrid-Cryptography.
   
   The below figures will give you the complete overview of the project
   
